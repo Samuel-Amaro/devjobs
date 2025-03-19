@@ -6,7 +6,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover">
+	<body
+		data-sveltekit-preload-data="hover"
+		class="data-[theme=light]:bg-light-grey data-[theme=dark]:dark:bg-midnight"
+	>
 		<div style="display: contents">%sveltekit.body%</div>
+		<noscript
+			>Ative o JavaScript para que o Aplicativo funcione corretamente com todas as iteratividades
+			necessárias</noscript
+		>
+		<script>
+			const themeSaved = window.localStorage.getItem('themeOption');
+
+			if (themeSaved) {
+				document.body.setAttribute('data-theme', themeSaved);
+			} else {
+				const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+				const theme = prefersLight ? 'light' : 'dark';
+				document.body.setAttribute('data-theme', theme);
+			}
+		</script>
 	</body>
 </html>
