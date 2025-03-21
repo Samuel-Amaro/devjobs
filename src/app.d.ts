@@ -2,7 +2,11 @@
 // for information about these interfaces
 declare global {
 	namespace App {
-		// interface Error {}
+		interface Error {
+			awaitTimestampReset?: number;
+			action?: string;
+			title?: string;
+		}
 		// interface Locals {}
 		// interface PageData {}
 		// interface PageState {}
