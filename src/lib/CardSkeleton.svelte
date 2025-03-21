@@ -20,7 +20,7 @@
 		/>
 	</header>
 	<ul class="m-0 flex list-none items-center gap-2.5 p-0">
-		{#each Array.from({ length: 3 }) as _}
+		{#each { length: 3 }}
 			<!-- svelte-ignore element_invalid_self_closing_tag -->
 			<li
 				class="animate-shimer h-5 w-[60px] rounded-[4px] bg-linear-[90deg,#e0e0e0_25%,#f0f0f0_50%,#e0e0e0_75%] bg-[200%_100%]"

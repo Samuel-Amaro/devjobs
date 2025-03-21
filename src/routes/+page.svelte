@@ -24,7 +24,7 @@
 	>
 		{#await data.data}
 			<div class="flex flex-wrap justify-center gap-[40px_11px] min-[1110px]:gap-[40px_30px]">
-				{#each Array.from<number>({ length: 6 }) as _}
+				{#each { length: 6 }}
 					<CardSkeleton />
 				{/each}
 			</div>
@@ -50,10 +50,7 @@
 						<p>Sem dados no momento</p>
 					</div>
 				{/if}
-				<form
-					class="dark:bg-very-dark-blue fixed bottom-0 left-0 w-full bg-white p-2.5"
-					data-sveltekit-replacestate
-				>
+				<form class="dark:bg-very-dark-blue fixed bottom-0 left-0 w-full bg-white p-2.5">
 					<div class="flex flex-col items-center justify-center gap-4">
 						{#if page.url.searchParams.get('page')}
 							<span
