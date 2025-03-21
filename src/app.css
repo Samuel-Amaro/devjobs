@@ -5,6 +5,7 @@
 
 @theme {
 	--default-font-family: 'Kumbh Sans', sans-serif;
+	--animate-shimer: shimmer 1.5s infinite linear;
 	--color-violet: #5964e0;
 	--color-light-violet: #939bf4;
 	--color-very-dark-blue: #19202d;
@@ -12,5 +13,19 @@
 	--color-light-grey: #f4f6f8;
 	--color-gray: #9daec2;
 	--color-dark-gray: #6e8098;
+	--color-custom-1: rgba(89, 100, 224, 0.1);
+	--color-custom-2: rgba(255, 255, 255, 0.1);
+	--color-custom-3: rgba(89, 100, 224, 0.35);
+	--color-custom-4: rgba(255, 255, 255, 0.35);
+	--color-custom-5: rgb(127, 226, 102);
 	--leading-normal: 1.625;
+
+	@keyframes shimmer {
+		0% {
+			background-position: -200% 0;
+		}
+		100% {
+			background-position: 200% 0;
+		}
+	}
 }
