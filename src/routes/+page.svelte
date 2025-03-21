@@ -50,30 +50,32 @@
 						<p>Sem dados no momento</p>
 					</div>
 				{/if}
-				<form class="dark:bg-very-dark-blue fixed bottom-0 left-0 w-full bg-white p-2.5">
-					<div class="flex flex-col items-center justify-center gap-4">
-						{#if page.url.searchParams.get('page')}
-							<span
-								class="text-custom-5 h-5 rounded-[4px] border px-2 text-[12px] leading-[20px] font-semibold"
-								>Página {page.url.searchParams.get('page')}</span
-							>
-						{/if}
-						<input
-							type="hidden"
-							name="page"
-							value={data.pagination.prev?.toString() ||
-								data.pagination.next?.toString() ||
-								data.pagination.last?.toString() ||
-								data.pagination.first?.toString()}
-						/>
-						<div class="flex items-center justify-center gap-2.5">
-							{@render btnPagination(data.pagination.first, 'Início')}
-							{@render btnPagination(data.pagination.prev, 'Anterior')}
-							{@render btnPagination(data.pagination.next, 'Próxima')}
-							{@render btnPagination(data.pagination.last, 'Ultíma')}
+				{#if data.pagination.first || data.pagination.prev || data.pagination.next || data.pagination.last}
+					<form class="dark:bg-very-dark-blue fixed bottom-0 left-0 w-full bg-white p-2.5">
+						<div class="flex flex-col items-center justify-center gap-4">
+							{#if page.url.searchParams.get('page')}
+								<span
+									class="text-custom-5 h-5 rounded-[4px] border px-2 text-[12px] leading-[20px] font-semibold"
+									>Página {page.url.searchParams.get('page')}</span
+								>
+							{/if}
+							<input
+								type="hidden"
+								name="page"
+								value={data.pagination.prev?.toString() ||
+									data.pagination.next?.toString() ||
+									data.pagination.last?.toString() ||
+									data.pagination.first?.toString()}
+							/>
+							<div class="flex items-center justify-center gap-2.5">
+								{@render btnPagination(data.pagination.first, 'Início')}
+								{@render btnPagination(data.pagination.prev, 'Anterior')}
+								{@render btnPagination(data.pagination.next, 'Próxima')}
+								{@render btnPagination(data.pagination.last, 'Ultíma')}
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				{/if}
 			</div>
 		{:catch error}
 			<div
