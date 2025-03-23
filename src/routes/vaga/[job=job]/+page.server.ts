@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import type { TypeIssue } from '../../../types';
 
 export const load: PageServerLoad = async ({ params, fetch }) => {
-	const urlApi = `https://api.github.com/repos/frontendbr/vagas/issue/${params.job}`;
+	const urlApi = `https://api.github.com/repos/frontendbr/vagas/issues/${params.job}`;
 
 	const response = await fetch(urlApi, { method: 'GET' });
 

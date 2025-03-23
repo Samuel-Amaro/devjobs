@@ -1,17 +1,47 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import Comment from '$lib/Icons/Comment.svelte';
 	import TriangleExclamation from '$lib/Icons/TriangleExclamation.svelte';
 	import { timeAgo } from '$lib/utils';
 	import { marked } from 'marked';
 	import type { PageProps } from './$types';
+	import { page } from '$app/state';
 
 	let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+	<title>Vaga {page.params.job}</title>
+	<meta name="description" content={`Vaga ${page.params.job}`} />
+	<meta name="keywords" content="vaga, trabalho, desenvolvedor, buscador de vagas,vagas online, vagas front-end br" />
+	<meta name="author" content="Front-End br vagas" />
+</svelte:head>
+
 {#await data.job}
-	<!-- TODO: ARRUMAR AQUI -->
-	<p>Carregando dados da vaga...</p>
+	<div class="mx-auto max-w-[730px] p-[0_24px_24px_24px]">
+		<header
+			class="dark:bg-very-dark-blue relative top-[-15px] flex animate-pulse flex-col items-center justify-center gap-14 rounded-[6px] bg-white p-[24px_32px_32px_32px]"
+		>
+			<div class="h-6 w-48 rounded bg-gray-300 dark:bg-gray-700"></div>
+			<div class="h-10 w-32 rounded bg-gray-300 dark:bg-gray-700"></div>
+		</header>
+		<main
+			class="dark:bg-very-dark-blue mt-[9px] flex animate-pulse flex-col gap-8 rounded-[6px] bg-white px-6 py-[40px]"
+		>
+			<header class="flex items-center gap-3">
+				<div class="h-4 w-20 rounded bg-gray-300 dark:bg-gray-700"></div>
+				<span class="bg-dark-gray size-1 rounded-[50%]"></span>
+				<div class="flex items-center gap-1">
+					<div class="h-5 w-5 rounded bg-gray-300 dark:bg-gray-700"></div>
+					<div class="h-4 w-6 rounded bg-gray-300 dark:bg-gray-700"></div>
+				</div>
+			</header>
+			<article class="flex flex-col gap-3">
+				<div class="h-4 w-full rounded bg-gray-300 dark:bg-gray-700"></div>
+				<div class="h-4 w-3/4 rounded bg-gray-300 dark:bg-gray-700"></div>
+				<div class="h-4 w-2/3 rounded bg-gray-300 dark:bg-gray-700"></div>
+			</article>
+		</main>
+	</div>
 {:then job}
 	<div class="mx-auto max-w-[730px] p-[0_24px_24px_24px]">
 		<header

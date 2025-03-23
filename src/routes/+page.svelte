@@ -11,16 +11,28 @@
 	let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+	<title>Quadro de vagas</title>
+	<meta
+		name="description"
+		content="Encontre as melhores oportunidades de emprego! Explore nosso quadro de vagas atualizado e conecte-se com empresas que estão contratando. Cadastre-se e candidate-se agora mesmo!"
+	/>
+	<meta
+		name="keywords"
+		content="vagas de emprego, quadro de vagas, oportunidades de trabalho, empregos disponíveis, empresas contratando, trabalho remoto, vagas home office, estágios abertos, empregos para desenvolvedores, melhores sites para buscar emprego, front-end br vagas"
+	/>
+</svelte:head>
+
 {#snippet btnPagination(key: number, text: string)}
 	{#if key}
-		<Button variant="primary" class="flex-[0_0_140px] cursor-pointer">{text}</Button>
+		<Button variant="primary" class="h-[24px] flex-[0_0_85px] cursor-pointer">{text}</Button>
 	{/if}
 {/snippet}
 
 <div>
 	<Filter />
 	<div
-		class="mx-auto w-[calc(100vw-48px)] max-w-[1110px] p-[24px_0_136px_0] min-[768px]:w-[calc(100vw-80px)] min-[1180px]:p-[24px_0_136px_0]"
+		class="mx-auto w-[calc(100vw-48px)] max-w-[1110px] p-[24px_0_156px_0] min-[768px]:w-[calc(100vw-80px)] min-[1180px]:p-[24px_0_156px_0]"
 	>
 		{#await data.data}
 			<div class="flex flex-wrap justify-center gap-[40px_11px] min-[1110px]:gap-[40px_30px]">
@@ -50,15 +62,9 @@
 						<p>Sem dados no momento</p>
 					</div>
 				{/if}
-				{#if data.pagination.first || data.pagination.prev || data.pagination.next || data.pagination.last}
-					<form class="dark:bg-very-dark-blue fixed bottom-0 left-0 w-full bg-white p-2.5">
-						<div class="flex flex-col items-center justify-center gap-4">
-							{#if page.url.searchParams.get('page')}
-								<span
-									class="text-custom-5 h-5 rounded-[4px] border px-2 text-[12px] leading-[20px] font-semibold"
-									>Página {page.url.searchParams.get('page')}</span
-								>
-							{/if}
+				<form class="dark:bg-very-dark-blue fixed bottom-0 left-0 w-full bg-white p-2.5">
+					<div class="flex flex-col items-center justify-center gap-3">
+						{#if data.pagination.first || data.pagination.prev || data.pagination.next || data.pagination.last}
 							<input
 								type="hidden"
 								name="page"
@@ -67,15 +73,25 @@
 									data.pagination.last?.toString() ||
 									data.pagination.first?.toString()}
 							/>
-							<div class="flex items-center justify-center gap-2.5">
+							<div
+								class="flex flex-wrap items-center justify-center gap-2.5 min-[375px]:flex-nowrap"
+							>
 								{@render btnPagination(data.pagination.first, 'Início')}
 								{@render btnPagination(data.pagination.prev, 'Anterior')}
 								{@render btnPagination(data.pagination.next, 'Próxima')}
 								{@render btnPagination(data.pagination.last, 'Ultíma')}
 							</div>
-						</div>
-					</form>
-				{/if}
+						{/if}
+						<p class="text-dark-gray dark:text-gray text-[14px] leading-[18px]">
+							As vagas exibidas neste site são extraídas do repositório público
+							<a
+								href="https://github.com/frontendbr/vagas/issues"
+								target="_blank"
+								class="text-violet hover:text-light-violet">frontendbr/vagas</a
+							>.
+						</p>
+					</div>
+				</form>
 			</div>
 		{:catch error}
 			<div
