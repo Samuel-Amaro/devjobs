@@ -2,6 +2,7 @@ import { buildQueryParams, parsePaginationLinks } from '$lib/utils';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { TypeIssue } from '../types';
+import { BASE_URL } from '$env/static/private';
 
 export const load: PageServerLoad = async ({ url, fetch }) => {
 	const queryParams = buildQueryParams({
@@ -9,7 +10,7 @@ export const load: PageServerLoad = async ({ url, fetch }) => {
 		page: url.searchParams.get('page')
 	});
 
-	const urlApi = `https://api.github.com/repos/frontendbr/vagas/issues${queryParams}`;
+	const urlApi = `${BASE_URL}/issues${queryParams}`;
 
 	const response = await fetch(urlApi, { method: 'GET' });
 

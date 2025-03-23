@@ -1,9 +1,10 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { TypeIssue } from '../../../types';
+import { BASE_URL } from '$env/static/private';
 
 export const load: PageServerLoad = async ({ params, fetch }) => {
-	const urlApi = `https://api.github.com/repos/frontendbr/vagas/issues/${params.job}`;
+	const urlApi = `${BASE_URL}/issues/${params.job}`;
 
 	const response = await fetch(urlApi, { method: 'GET' });
 
