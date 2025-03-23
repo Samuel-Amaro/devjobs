@@ -3,6 +3,48 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+@layer base {
+	:root {
+		--text: #6e8098;
+	}
+
+	[data-theme='dark'] {
+		--text: #9daec2;
+	}
+
+	article > h1,
+	article > h2,
+	article > h3,
+	article > h4,
+	article > h5,
+	article > h6 {
+		margin-bottom: 28px;
+		font-size: 20px;
+		font-weight: bold;
+		color: var(--text);
+	}
+
+	article > p {
+		margin-bottom: 32px;
+	}
+
+	article > ul {
+		margin-bottom: 40px;
+		padding: 0 0 0 24px;
+
+		list-style-type: circle;
+	}
+
+	article a {
+		text-decoration: underline;
+		color: #5964e0;
+	}
+
+	article a:is(:hover, :focus) {
+		color: #939bf4;
+	}
+}
+
 @theme {
 	--default-font-family: 'Kumbh Sans', sans-serif;
 	--animate-shimer: shimmer 1.5s infinite linear;
@@ -18,6 +60,7 @@
 	--color-custom-3: rgba(89, 100, 224, 0.35);
 	--color-custom-4: rgba(255, 255, 255, 0.35);
 	--color-custom-5: rgb(127, 226, 102);
+	--color-custom-6: rgba(255, 255, 255, 0.25);
 	--leading-normal: 1.625;
 
 	@keyframes shimmer {
