@@ -1,38 +1,49 @@
-# sv
+# Devjobs
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+O Devjobs é um aplicativo web que facilita a busca por oportunidades na área de tecnologia. Ele consome a API do GitHub para obter as issues do repositório [frontendbr/vagas](https://github.com/frontendbr/vagas/issues) e exibe as vagas de forma organizada em uma interface intuitiva e responsiva.
 
-## Creating a project
+## Visão geral
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Comportamento esperado
+
+- Visualizar o quadro de vagas
+- Filtrar vagas por palavras chaves relacionada as vagas 
+- Visualizar um vaga em especifico.
+
+### Captura de tela
+
+![](./static/result-desktop.png)
+
+### Links
+
+- Repositorio GitHub: [Adicione a URL da solução aqui](https://your-solution-url.com)
+- App: [Adicione a URL do site ativo aqui](https://your-live-site-url.com)
+
+### Contruído com
+
+- Marcação HTML5 semântica
+- Talwind - CSS
+- TypeScript
+- Svelte
+- SvelteKit
+
+## Criando um projeto
 
 ```bash
-# create a new project in the current directory
+# crie um novo projeto no diretório atual
 npx sv create
 
-# create a new project in my-app
+# crie um novo projeto em my-app
 npx sv create my-app
 ```
 
-## Developing
+## Desenvolvendo
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Depois de criar um projeto e instalar dependências com `npm install` (ou `pnpm install` ou `yarn`), inicie um servidor de desenvolvimento:
 
 ```bash
 npm run dev
 
-# or start the server and open the app in a new browser tab
+# ou inicie o servidor e abra o aplicativo em uma nova aba do navegador
 npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
