@@ -7,7 +7,7 @@ O Devjobs é um aplicativo web que facilita a busca por oportunidades na área d
 ### Comportamento esperado
 
 - Visualizar o quadro de vagas
-- Filtrar vagas por palavras chaves relacionada as vagas 
+- Filtrar vagas por palavras chaves relacionada as vagas
 - Visualizar um vaga em especifico.
 
 ### Captura de tela
@@ -26,6 +26,8 @@ O Devjobs é um aplicativo web que facilita a busca por oportunidades na área d
 - TypeScript
 - Svelte
 - SvelteKit
+- marked
+- DOMPurify
 
 ## Criando um projeto
 
