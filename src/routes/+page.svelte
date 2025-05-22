@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import Button from '$lib/Button.svelte';
 	import Card from '$lib/Card.svelte';
 	import CardSkeleton from '$lib/CardSkeleton.svelte';
