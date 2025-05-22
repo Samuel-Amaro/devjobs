@@ -1,4 +1,6 @@
 <script lang="ts">
+	/*eslint svelte/no-at-html-tags: "error"*/
+	/* eslint-disable svelte/no-at-html-tags */
 	import Comment from '$lib/Icons/Comment.svelte';
 	import TriangleExclamation from '$lib/Icons/TriangleExclamation.svelte';
 	import { timeAgo } from '$lib/utils';
@@ -75,7 +77,7 @@
 			<article
 				class="text-dark-gray dark:text-gray text-[16px] leading-[26px] font-normal break-words"
 			>
-				{@html DOMPurify.sanitize(marked(job.body))}
+				{@html DOMPurify.sanitize(await marked(job.body))}
 			</article>
 		</main>
 	</div>
