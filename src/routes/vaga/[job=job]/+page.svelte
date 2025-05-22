@@ -5,6 +5,7 @@
 	import { marked } from 'marked';
 	import type { PageProps } from './$types';
 	import { page } from '$app/state';
+	import DOMPurify from 'dompurify';
 
 	let { data }: PageProps = $props();
 </script>
@@ -12,7 +13,10 @@
 <svelte:head>
 	<title>Vaga {page.params.job}</title>
 	<meta name="description" content={`Vaga ${page.params.job}`} />
-	<meta name="keywords" content="vaga, trabalho, desenvolvedor, buscador de vagas,vagas online, vagas front-end br" />
+	<meta
+		name="keywords"
+		content="vaga, trabalho, desenvolvedor, buscador de vagas,vagas online, vagas front-end br"
+	/>
 	<meta name="author" content="Front-End br vagas" />
 </svelte:head>
 
@@ -71,7 +75,7 @@
 			<article
 				class="text-dark-gray dark:text-gray text-[16px] leading-[26px] font-normal break-words"
 			>
-				{@html marked(job.body)}
+				{@html DOMPurify.sanitize(marked(job.body))}
 			</article>
 		</main>
 	</div>
