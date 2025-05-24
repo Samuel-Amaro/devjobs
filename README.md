@@ -16,8 +16,8 @@ O Devjobs é um aplicativo web que facilita a busca por oportunidades na área d
 
 ### Links
 
-- Repositorio GitHub: [Adicione a URL da solução aqui](https://your-solution-url.com)
-- App: [Adicione a URL do site ativo aqui](https://your-live-site-url.com)
+- Repositorio GitHub: [Repositorio GitHub](https://github.com/Samuel-Amaro/devjobs)
+- App: [Result Live](https://devjobs-silk-pi.vercel.app/)
 
 ### Contruído com
 
