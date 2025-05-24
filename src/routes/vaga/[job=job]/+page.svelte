@@ -77,7 +77,7 @@
 			<article
 				class="text-dark-gray dark:text-gray text-[16px] leading-[26px] font-normal break-words"
 			>
-				{@html DOMPurify.sanitize(await marked(job.body))}
+				{@html DOMPurify.sanitize(marked(job.body))}
 			</article>
 		</main>
 	</div>
